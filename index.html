@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>수학 학습 통합 페이지</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "맑은 고딕", "Malgun Gothic", sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #f5f7fb;
+}
+
+/* 맨 위 아주 작은 드롭다운 영역 */
+#top-bar {
+    width: 100%;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    background: #1e3c72;
+    border-bottom: 1px solid #d7e1f2;
+}
+
+#top-bar label {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+#fileSelect {
+    width: 190px;
+    height: 28px;
+    font-size: 12px;
+    padding: 3px 6px;
+    border: none;
+    border-radius: 6px;
+    background: white;
+    color: #1e3c72;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#openBtn {
+    height: 28px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 6px;
+    background: #ffd54f;
+    color: #1e3c72;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#openBtn:hover {
+    background: #ffe082;
+}
+
+/* 아래 전체 창: 본문 아주 넓게 */
+#content-area {
+    width: 100%;
+    height: calc(100vh - 42px);
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+}
+</style>
+</head>
+
+<body>
+
+<div id="top-bar">
+    <label for="fileSelect">📚 수학 파일</label>
+
+    <select id="fileSelect" onchange="loadSelectedPage()">
+            <option value="math01.html">수학개념</option>
+            <option value="math02.html">고급수학개념</option>
+            <option value="math11.html">수학정리</option>
+            <option value="math12.html">정수론</option>
+            <option value="math13.html">선형대수학</option>
+            <option value="math14.html">현대대수학</option>
+            <option value="math15.html">집합론</option>
+            <option value="math16.html">위상수학</option>
+            <option value="math17.html">실해석학</option>
+            <option value="math18.html">복소해석학</option>
+            <option value="math21.html">미분법</option>
+            <option value="math22.html">적분법</option>
+            <option value="math23.html">고급미적분</option>
+            <option value="math24.html">확률론</option>
+            <option value="math25.html">통계학</option>
+            <option value="matoop.html">행렬</option>
+            <option value="cd20.html">모든 점 연속 모든 점 미분불가능</option>        
+    </select>
+
+    <button id="openBtn" onclick="loadSelectedPage()">열기</button>
+</div>
+
+<div id="content-area">
+    <iframe id="contentFrame" src="math01.html"></iframe>
+</div>
+
+<script>
+function loadSelectedPage() {
+    const select = document.getElementById("fileSelect");
+    document.getElementById("contentFrame").src = select.value;
+}
+</script>
+
+</body>
+</html>
